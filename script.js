@@ -31,32 +31,6 @@ if (hamburger) {
     });
 }
 
-// Contact form handling
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const formData = {
-            name: this.querySelector('input[type="text"]').value,
-            email: this.querySelector('input[type="email"]').value,
-            phone: this.querySelector('input[type="tel"]').value,
-            message: this.querySelector('textarea').value
-        };
-
-        const subject = encodeURIComponent('Project Inquiry from ' + formData.name);
-        const body = encodeURIComponent(
-            `Name: ${formData.name}\n` +
-            `Email: ${formData.email}\n` +
-            `Phone: ${formData.phone}\n\n` +
-            `Message:\n${formData.message}`
-        );
-
-        alert('Thank you for your inquiry! Please call (347) 830-5763 or your email client will open to send the message.');
-        this.reset();
-    });
-}
-
 // Add scroll effect to navbar
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');

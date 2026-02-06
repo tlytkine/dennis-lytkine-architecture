@@ -111,11 +111,11 @@
                 </div>
                 <div class="contact-form-container">
                     <h3>Get In Touch</h3>
-                    <form class="contact-form">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="tel" placeholder="Your Phone">
-                        <textarea placeholder="Tell us about your project" rows="5" required></textarea>
+                    <form class="contact-form" action="https://formspree.io/f/mbdarwrb" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone">
+                        <textarea name="message" placeholder="Tell us about your project" rows="5" required></textarea>
                         <button type="submit" class="btn-primary">Send Message</button>
                     </form>
                 </div>
