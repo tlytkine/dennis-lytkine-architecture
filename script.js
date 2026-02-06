@@ -9,34 +9,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
         }
+        // Close mobile menu after clicking a link
+        const navMenu = document.querySelector('.nav-menu');
+        const hamburger = document.querySelector('.hamburger');
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
     });
 });
 
-// Mobile menu toggle
-const createMobileMenu = () => {
-    const navbar = document.querySelector('.navbar .container');
-    const navMenu = document.querySelector('.nav-menu');
+// Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
 
-    // Only create hamburger menu on mobile
-    if (window.innerWidth <= 480 && !document.querySelector('.hamburger')) {
-        const hamburger = document.createElement('div');
-        hamburger.className = 'hamburger';
-        hamburger.innerHTML = '☰';
-        hamburger.style.cssText = 'color: white; font-size: 2rem; cursor: pointer; display: block;';
-
-        navMenu.style.display = 'none';
-
-        hamburger.addEventListener('click', () => {
-            if (navMenu.style.display === 'none' || navMenu.style.display === '') {
-                navMenu.style.display = 'flex';
-            } else {
-                navMenu.style.display = 'none';
-            }
-        });
-
-        navbar.appendChild(hamburger);
-    }
-};
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+    });
+}
 
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
@@ -44,7 +37,6 @@ if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Get form values
         const formData = {
             name: this.querySelector('input[type="text"]').value,
             email: this.querySelector('input[type="email"]').value,
@@ -52,8 +44,6 @@ if (contactForm) {
             message: this.querySelector('textarea').value
         };
 
-        // In a real implementation, you would send this data to a server
-        // For now, we'll create a mailto link
         const subject = encodeURIComponent('Project Inquiry from ' + formData.name);
         const body = encodeURIComponent(
             `Name: ${formData.name}\n` +
@@ -62,47 +52,22 @@ if (contactForm) {
             `Message:\n${formData.message}`
         );
 
-        // Show confirmation message
-        alert('Thank you for your inquiry! Please call 347-830-5763 or your email client will open to send the message.');
-
-        // Optional: Open email client (you can remove this if you set up a backend)
-        // window.location.href = `mailto:dennis@example.com?subject=${subject}&body=${body}`;
-
-        // Reset form
+        alert('Thank you for your inquiry! Please call (347) 830-5763 or your email client will open to send the message.');
         this.reset();
     });
 }
 
 // Add scroll effect to navbar
-let lastScroll = 0;
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 100) {
-        navbar.style.background = 'rgba(44, 62, 80, 0.95)';
+    if (window.pageYOffset > 50) {
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.4)';
     } else {
-        navbar.style.background = '#2c3e50';
-    }
-
-    lastScroll = currentScroll;
-});
-
-// Initialize mobile menu on load and resize
-window.addEventListener('load', createMobileMenu);
-window.addEventListener('resize', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (window.innerWidth > 480) {
-        if (hamburger) hamburger.remove();
-        navMenu.style.display = 'flex';
-    } else {
-        createMobileMenu();
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
     }
 });
 
-// Add animation on scroll for service cards
+// Animate elements on scroll
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -117,13 +82,12 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe service cards
 document.addEventListener('DOMContentLoaded', () => {
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
+    const animatedElements = document.querySelectorAll('.service-detail, .project-type');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
     });
 });

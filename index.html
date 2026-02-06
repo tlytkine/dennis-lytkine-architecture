@@ -6,27 +6,42 @@
     <meta name="description" content="Dennis Lytkine - Licensed Architect in Fort Myers, Florida. AIA, NCARB, LEED Green Associate offering professional architectural services, project licensing, and approval services.">
     <title>Dennis Lytkine, AIA | Licensed Architect | Fort Myers, FL</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand">Dennis Lytkine, AIA</div>
+            <a href="#home" class="nav-brand">Dennis Lytkine, AIA</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#services">ARCHITECTURAL SERVICES</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact" class="nav-cta">GET STARTED</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="home" class="hero">
+    <header class="top-bar">
         <div class="container">
-            <div class="hero-content">
-                <h1>Dennis Lytkine</h1>
-                <p class="credentials">AIA, NCARB, LEED Green Associate</p>
-                <p class="subtitle">Licensed Architect | Fort Myers, Florida</p>
-                <p class="tagline">Professional Architectural Services & Project Licensing</p>
+            <a href="#contact" class="top-bar-cta">SCHEDULE YOUR CONSULTATION TODAY</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content" id="main-content">
+                <h1>Professional Architectural Services</h1>
+                <p class="hero-subtitle">Licensed Architect | Fort Myers, Florida</p>
                 <a href="#contact" class="btn-primary">Get Started</a>
             </div>
         </div>
@@ -34,97 +49,78 @@
 
     <section id="services" class="services">
         <div class="container">
-            <h2>Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">📋</div>
-                    <h3>Project Licensing</h3>
-                    <p>Professional architectural licensing services for your construction projects, ensuring compliance with Florida building codes and regulations.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">✓</div>
-                    <h3>Project Approvals</h3>
-                    <p>Expert review and approval services to expedite your project through the permitting process with local authorities.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📐</div>
-                    <h3>Architectural Design</h3>
-                    <p>Comprehensive architectural design services from concept through construction documentation.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏗️</div>
-                    <h3>Construction Consulting</h3>
-                    <p>Professional construction consulting services leveraging years of experience with complex building projects.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🌿</div>
-                    <h3>Sustainable Design</h3>
-                    <p>LEED-certified green building design and consulting for environmentally responsible projects.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📝</div>
-                    <h3>Code Compliance</h3>
-                    <p>Thorough review and consultation to ensure your project meets all applicable building codes and zoning requirements.</p>
-                </div>
+            <div class="section-header">
+                <p class="section-label">Our Services</p>
+                <h2>What We Offer</h2>
+            </div>
+
+            <div class="service-detail">
+                <h3>Architectural Design &ndash; From Concept to Construction</h3>
+                <p>Great architecture starts with a clear vision. Our comprehensive architectural design services guide your project from initial concept through construction documentation. Dennis Lytkine brings extensive experience in space planning, interior architecture, and commercial design to every project.</p>
+                <p>Whether you're planning a new build or a renovation, we deliver designs that are both functional and aesthetically compelling. Our proficiency with Revit, AutoCAD, and modern design tools ensures precise documentation that contractors can build from with confidence, reducing costly change orders and construction delays.</p>
+            </div>
+
+            <div class="service-detail">
+                <h3>Project Licensing &ndash; Ensuring Full Compliance</h3>
+                <p>Navigating Florida's building codes and licensing requirements can be complex. Our project licensing services ensure that your construction project meets all local and state regulations from the start. As a licensed architect with NCARB certification, Dennis provides the professional stamp and oversight your project requires.</p>
+                <p>We work directly with local building departments and permitting authorities to streamline the approval process. Our deep understanding of Florida building codes means fewer revisions, faster approvals, and a smoother path to breaking ground on your project.</p>
+            </div>
+
+            <div class="service-detail">
+                <h3>Construction Consulting &ndash; Expert Guidance at Every Stage</h3>
+                <p>Construction projects involve countless decisions that impact quality, cost, and timeline. Our construction consulting services leverage years of hands-on experience to help you make informed decisions throughout your project. From material selection to contractor coordination, we provide the expert guidance you need.</p>
+                <p>As your consulting partner, we identify potential issues early, offer practical solutions, and help keep your project on track and within budget. Our goal is to ensure that the finished result matches the original design intent while meeting all applicable codes and standards.</p>
+            </div>
+
+            <div class="service-detail">
+                <h3>Sustainable Design &ndash; Building for the Future</h3>
+                <p>As a LEED Green Associate, Dennis brings a commitment to environmentally responsible design to every project. We integrate sustainable strategies that reduce energy consumption, minimize environmental impact, and create healthier spaces for occupants&mdash;all while maintaining design excellence and cost-effectiveness.</p>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="about" class="why-choose">
         <div class="container">
-            <h2>About Dennis Lytkine</h2>
-            <div class="about-content">
-                <div class="credentials-section">
-                    <h3>Professional Credentials</h3>
-                    <ul class="credentials-list">
-                        <li><strong>AIA</strong> - American Institute of Architects Member</li>
-                        <li><strong>NCARB</strong> - National Council of Architectural Registration Boards Certified</li>
-                        <li><strong>LEED Green Associate</strong> - Sustainable Design Certification</li>
-                    </ul>
-                </div>
-                <div class="experience-section">
-                    <h3>Experience</h3>
-                    <p>Dennis brings extensive experience in architecture and construction consulting, with a diverse background including:</p>
-                    <ul class="experience-list">
-                        <li>Senior Construction Consultant at MC Consultants (2023-Present)</li>
-                        <li>Architectural roles at PERGOLA ROOF, BSSW Architects, and SUPERSTRUCTURES Engineers + Architects</li>
-                        <li>Specialized expertise in space planning, interior architecture, and commercial architecture</li>
-                        <li>Education from Alfred State College - SUNY and Harvard University (Architectural Imagination)</li>
-                        <li>Proficient in Revit, AutoCAD, Photoshop, and sustainable design practices</li>
-                    </ul>
-                </div>
+            <h2>Why Choose Dennis Lytkine Architecture?</h2>
+            <p class="why-intro">Dennis works closely with property owners, engineers, contractors, and local authorities to ensure that your project progresses smoothly, efficiently, and in full compliance with Florida's building codes. With credentials from the American Institute of Architects, NCARB certification, and LEED Green Associate status, you can trust that your project is in expert hands.</p>
+
+            <p class="why-intro">Our team has provided architectural and consulting services for a wide range of projects throughout Southwest Florida, including:</p>
+
+            <div class="project-types">
+                <div class="project-type">Commercial Buildings</div>
+                <div class="project-type">Office Interiors</div>
+                <div class="project-type">Residential Properties</div>
+                <div class="project-type">Renovations &amp; Additions</div>
             </div>
+
+            <p class="why-intro">With deep local expertise, we are able to navigate the unique challenges of building in Southwest Florida, offering you a seamless experience and superior service at every stage of your project.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Get Started!</h2>
+            <a href="#contact" class="btn-primary btn-large">Schedule Your Consultation Today</a>
         </div>
     </section>
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Contact</h2>
+            <h2>Contact Us</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>Ready to start your project? Contact Dennis today for professional architectural services in Fort Myers and throughout Florida.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <span class="contact-label">Phone:</span>
-                            <a href="tel:347-830-5763">347-830-5763</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-label">Location:</span>
-                            <span>Fort Myers, Florida</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-label">Service Area:</span>
-                            <span>Fort Myers & Throughout Florida</span>
-                        </div>
-                    </div>
+                    <h3>Dennis Lytkine, AIA</h3>
+                    <p class="contact-phone"><a href="tel:347-830-5763">(347) 830-5763</a></p>
+                    <p class="contact-address">Fort Myers, Florida</p>
+                    <p class="contact-area">Serving Southwest Florida &amp; Beyond</p>
                 </div>
                 <div class="contact-form-container">
+                    <h3>Get In Touch</h3>
                     <form class="contact-form">
                         <input type="text" placeholder="Your Name" required>
                         <input type="email" placeholder="Your Email" required>
                         <input type="tel" placeholder="Your Phone">
-                        <textarea placeholder="Tell me about your project" rows="5" required></textarea>
+                        <textarea placeholder="Tell us about your project" rows="5" required></textarea>
                         <button type="submit" class="btn-primary">Send Message</button>
                     </form>
                 </div>
@@ -134,8 +130,21 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Dennis Lytkine, AIA, NCARB, LEED Green Associate. All rights reserved.</p>
-            <p>Licensed Architect | Fort Myers, Florida</p>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p class="footer-brand">Dennis Lytkine, AIA, NCARB, LEED Green Associate</p>
+                    <p>Licensed Architect | Fort Myers, Florida</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">HOME</a>
+                    <a href="#services">ARCHITECTURAL SERVICES</a>
+                    <a href="#about">ABOUT</a>
+                    <a href="#contact">GET STARTED</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dennis Lytkine, AIA. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
