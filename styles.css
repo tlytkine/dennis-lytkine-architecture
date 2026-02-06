@@ -72,10 +72,27 @@ body {
 .nav-brand {
     color: var(--white);
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 300;
     text-decoration: none;
-    letter-spacing: 0.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 2px solid var(--accent-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: var(--accent-color);
 }
 
 .nav-menu {
@@ -186,22 +203,60 @@ body {
     z-index: 1;
 }
 
-.hero-content h1 {
+.hero-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.hero-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border: 3px solid var(--accent-color);
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.2rem;
-    margin-bottom: 1rem;
-    font-weight: 800;
+    font-weight: 700;
+    font-size: 2.8rem;
+    letter-spacing: 5px;
+    color: var(--accent-color);
+}
+
+.hero-brand-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: 12px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-divider {
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin: 0 auto 1.5rem;
+}
+
+.hero-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.05rem;
     margin-bottom: 2.5rem;
     font-weight: 300;
-    letter-spacing: 1px;
-    opacity: 0.9;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    line-height: 1.8;
 }
 
 .btn-primary {
@@ -390,6 +445,13 @@ body {
     font-weight: 700;
 }
 
+.contact-credentials {
+    font-size: 0.9rem;
+    color: var(--gray);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
 .contact-phone a {
     color: var(--secondary-color);
     text-decoration: none;
@@ -473,9 +535,22 @@ body {
 
 .footer-brand {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+}
+
+.footer-brand .brand-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+    border-width: 1.5px;
 }
 
 .footer-info p {
@@ -514,8 +589,15 @@ body {
 
 /* Responsive Design */
 @media (max-width: 992px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .hero-brand-text {
+        font-size: 2.2rem;
+        letter-spacing: 8px;
+    }
+
+    .hero-mark {
+        width: 80px;
+        height: 80px;
+        font-size: 2.2rem;
     }
 
     .project-types {
@@ -531,6 +613,11 @@ body {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+        align-items: center;
+    }
+
+    .footer-brand {
+        justify-content: center;
     }
 
     .footer-links {
@@ -570,12 +657,24 @@ body {
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .hero-content h1 {
-        font-size: 2rem;
+    .hero-brand-text {
+        font-size: 1.6rem;
+        letter-spacing: 6px;
+    }
+
+    .hero-mark {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+
+    .hero-tagline {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
     }
 
     .section-header h2,
@@ -602,16 +701,31 @@ body {
 
 @media (max-width: 480px) {
     .nav-brand {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        gap: 6px;
+    }
+
+    .brand-mark {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
     }
 
     .hero {
         padding: 80px 20px;
     }
 
-    .hero-content h1 {
-        font-size: 1.6rem;
-        letter-spacing: 1px;
+    .hero-brand-text {
+        font-size: 1.3rem;
+        letter-spacing: 4px;
+    }
+
+    .hero-mark {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        letter-spacing: 3px;
     }
 
     .top-bar-cta {
