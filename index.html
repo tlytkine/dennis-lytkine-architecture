@@ -193,9 +193,17 @@
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your Email" required>
                         <input type="tel" name="phone" placeholder="Your Phone Number" required>
-                        <input type="text" name="address" placeholder="Your Address" required>
-                        <input type="text" name="project_name" placeholder="Project Name" required>
-                        <input type="text" name="parcel_or_tax_id" placeholder="Parcel Tax ID or Project Address" required>
+                        <input type="text" name="address" placeholder="Your Address (optional)">
+                        <input type="text" name="project_name" placeholder="Project Name (optional)">
+                        <input type="text" name="parcel_or_tax_id" placeholder="Project Address or Parcel Tax ID" required>
+                        <select name="jurisdiction" required>
+                            <option value="" disabled selected>Which county or city issues the permit?</option>
+                            <option value="Lee County">Lee County</option>
+                            <option value="Collier County">Collier County</option>
+                            <option value="Charlotte County">Charlotte County</option>
+                            <option value="Cape Coral">Cape Coral</option>
+                            <option value="Other / Not sure">Other / Not sure</option>
+                        </select>
                         <select name="service" required>
                             <option value="" disabled selected>What do you need?</option>
                             <option value="Plan Review">Plan Review</option>
@@ -233,5 +241,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="chatbot.js" defer></script>
 </body>
 </html>

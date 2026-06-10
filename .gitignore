@@ -8,3 +8,11 @@
 # Temporary files
 *.tmp
 *.log
+
+# PRIVATE BUSINESS DATA — never commit. This repo is served publicly by
+# GitHub Pages, so anything committed here is visible at privateproviderswfl.com
+# and on GitHub. profile.json holds license numbers, insurance policy numbers,
+# EIN, and ID info; leads.md and projects/ hold client PII.
+business/
+.claude/settings.local.json
+CLAUDE.md
