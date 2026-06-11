@@ -20,11 +20,11 @@ prepared for one building department. Follow these steps:
 3. **Download** the registration form and any related PDFs into `business/jurisdictions/<slug>/` (use
    `curl -L`). If there's no downloadable form (some departments take a letter + attachments), note that.
 
-4. **Fill out the form.** Extract the form's fields (use `pdftotext` or read the PDF directly) and produce
-   `business/jurisdictions/<slug>/registration-answers.md`: every field on the form, the value to enter
-   (pulled from profile.json), and a `⚠ MISSING` marker for anything profile.json has as TODO. If the PDF
-   has fillable fields and tooling is available, also produce a filled copy; otherwise the answers file is
-   the deliverable — Dennis transcribes/signs.
+4. **Fill out the form.** Produce `business/jurisdictions/<slug>/registration-answers.md`: every field on
+   the form, the value to enter (from profile.json), and a `⚠ MISSING` marker for anything still TODO.
+   Then **actually fill the PDF** using the `/fill-pdf` workflow (pypdf for AcroForm fields, reportlab
+   overlay otherwise) and save `<form>-FILLED.pdf` — leaving signature/notary/missing fields blank.
+   Verify the filled PDF by reading it back.
 
 5. **Draft the cover email** from `business/templates/registration-cover-email.md`, addressed to the
    contact found in step 2, listing the attachments. Save as `business/jurisdictions/<slug>/cover-email.md`.
