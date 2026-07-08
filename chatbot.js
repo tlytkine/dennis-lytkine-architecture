@@ -1,7 +1,7 @@
 // Private Provider SWFL — guided intake chatbot.
 // Fully client-side and rule-based: no API keys (nothing to leak on a static site),
 // all user input rendered via textContent (no XSS), honeypot field for bot spam.
-// Submits to the same Formspree endpoint as the contact form.
+// Submits to HubSpot (via submitToHubspot in script.js), with Formspree as fallback.
 (function () {
     'use strict';
 
@@ -173,28 +173,41 @@
     function submitLead() {
         if (honeypot.value) { addMsg('Thanks!', 'bot'); return; }
         addMsg('Sending your request…', 'bot');
-        var payload = {
-            _subject: 'Chatbot lead: ' + answers.name + ' — ' + answers.service,
-            source: 'website chatbot',
+        // submitToHubspot/hubspotFields come from script.js (loaded before this file)
+        submitToHubspot({
             name: answers.name,
             email: answers.email,
             phone: answers.phone,
             jurisdiction: answers.jurisdiction,
             parcel_or_tax_id: answers.parcel_or_tax_id,
             service: answers.service,
-            message: answers.message
-        };
-        fetch(FORM_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-            body: JSON.stringify(payload)
-        }).then(function (res) {
-            if (res.ok) {
-                addMsg('✅ Got it, ' + answers.name + '! Your request is in. We’ll review it and get back to you at ' + answers.email + ' — usually within one business day.', 'bot');
-            } else {
-                fallback();
-            }
-        }).catch(fallback);
+            message: '[website chatbot] ' + answers.message
+        }).then(function () {
+            addMsg('✅ Got it, ' + answers.name + '! Your request is in — we just emailed our services and pricing to ' + answers.email + ' (check spam if you don’t see it). We’ll follow up personally within one business day.', 'bot');
+        }).catch(function () {
+            // If HubSpot is unreachable, fall back to Formspree so no lead is lost
+            fetch(FORM_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify({
+                    _subject: 'Chatbot lead: ' + answers.name + ' — ' + answers.service,
+                    source: 'website chatbot',
+                    name: answers.name,
+                    email: answers.email,
+                    phone: answers.phone,
+                    jurisdiction: answers.jurisdiction,
+                    parcel_or_tax_id: answers.parcel_or_tax_id,
+                    service: answers.service,
+                    message: answers.message
+                })
+            }).then(function (res) {
+                if (res.ok) {
+                    addMsg('✅ Got it, ' + answers.name + '! Your request is in. We’ll review it and get back to you at ' + answers.email + ' — usually within one business day.', 'bot');
+                } else {
+                    fallback();
+                }
+            }).catch(fallback);
+        });
     }
 
     function fallback() {

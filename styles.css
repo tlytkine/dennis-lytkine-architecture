@@ -888,3 +888,13 @@ body {
         font-size: 0.9rem;
     }
 }
+
+/* Contact form success state (shown after HubSpot submission) */
+.form-success {
+    background: rgba(200, 164, 93, 0.12);
+    border: 1px solid #c8a45d;
+    border-radius: 8px;
+    padding: 24px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
